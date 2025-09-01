@@ -116,7 +116,6 @@ env/
 
 #models
 models/
-config/
 
 # Custom exclusions for your project
 config/params.yaml  # if you want to keep params.yaml out of version control
