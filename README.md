@@ -35,10 +35,13 @@ This project implements a sophisticated text-based emotion recognition system th
 ```
 Text-Based-Emotion-Recognition/
 ├── app.py                 # Gradio web interface
-├── train.py              # Model training script
-├── evaluate.py           # Model evaluation script
-├── predict.py            # Command-line prediction
-├── data_processing.py    # Data loading and preprocessing
+├── logs/                  # Logs folder 
+├── src/  
+|   └── train.py              # Model training script
+|   └── evaluate.py           # Model evaluation script
+|   └── predict.py            # Command-line prediction
+|   └── data_processing.py    # Data loading and preprocessing
+|   └── save_tokenizer.py     # save Tokenizer
 ├── config/
 │   └── params.yaml       # Configuration parameters
 ├── models/
@@ -169,7 +172,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📄 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 - Google Research for the GoEmotions dataset
 - Hugging Face for Transformers library
 - Gradio team for the excellent UI framework
