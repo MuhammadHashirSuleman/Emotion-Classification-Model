@@ -1,0 +1,43 @@
+# Model Configuration
+model_name: "distilbert-base-uncased"
+num_labels: 28
+problem_type: "multi_label_classification"
+model_path: "./models/saved_model/pytorch_model.bin"
+
+model:
+  save_path: "./models/best_model"  
+
+
+training_args:
+  gradient_accumulation_steps: 4
+  num_train_epochs: 25  # Increased from 15
+
+  
+# Training Arguments
+training_args:
+  output_dir: "./models/training_checkpoints"
+  num_train_epochs: 15
+  learning_rate: 0.00003  # Changed from 3e-5 to avoid string interpretation
+  per_device_train_batch_size: 32
+  per_device_eval_batch_size: 64
+  warmup_steps: 500
+  weight_decay: 0.01
+  logging_dir: "./logs"
+  logging_steps: 200
+  eval_strategy: "epoch"
+  save_strategy: "epoch"
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_f1_micro"
+  greater_is_better: true
+  save_total_limit: 2
+  seed: 42
+
+# Data Configuration
+data:
+  dataset_name: "go_emotions"
+  test_size: 0.2
+  max_seq_length: 128
+
+# Prediction Configuration
+prediction:
+  confidence_threshold: 0.3
